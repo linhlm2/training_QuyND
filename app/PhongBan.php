@@ -16,6 +16,6 @@ class PhongBan extends Model
     protected $table ='phongban';
     
     public function nhanvien(){
-    	return $this->belongsTo('App\NhanVien','ma_phongban','id_pb');
+    	return $this->hasMany('App\NhanVien','ma_phongban','id');
     }
 }

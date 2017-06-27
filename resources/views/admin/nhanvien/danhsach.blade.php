@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thể Loại
-                            <small>Danh sách</small>
+                        <h1 class="page-header">
+                            <small>Danh sách nhân viên</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -25,7 +25,7 @@
                                 <th>dân tộc</th>
                                 <th>giới tính</th>
                                 <th>email</th>
-                                <!--<th></th>-->
+                                <th>phòng ban</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -33,15 +33,16 @@
                         <tbody>
                         @foreach($danhsach as $tl)
                             <tr class="odd gradeX" align="center">
-                                <td>{{$tl->id_nv}}</td>
+                                <td>{{$tl->id}}</td>
                                 <td>{{$tl->hoten}}</td>
                                 <td>{{$tl->ngaysinh}}</td>
                                 <td>{{$tl->quequan}}</td>
                                 <td>{{$tl->dantoc}}</td>
                                 <td>{{$tl->gioitinh}}</td>
                                 <td>{{$tl->email}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/theloai/xoa/{{$tl->id_nv}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/theloai/sua/{{$tl->id_nv}}">Edit</a></td>
+                                <td>{{$tl->phongban->ten_phongban}}</td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/nhanvien/xoa/{{$tl->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/nhanvien/sua/{{$tl->id}}">Edit</a></td>
                             </tr>
                          @endforeach   
                         </tbody>

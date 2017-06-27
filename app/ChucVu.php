@@ -16,6 +16,6 @@ class ChucVu extends Model
     protected $table ='chucvu';
     
     public function nhanvien(){
-    	return $this->belongsTo('App\NhanVien','ma_chucvu','id_cv');
+    	return $this->hasMany('App\NhanVien','ma_chucvu','id');
     }
 }

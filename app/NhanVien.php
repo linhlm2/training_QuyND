@@ -15,9 +15,9 @@ class NhanVien extends Model
     //
     protected $table ='nhanvien';
     public function phongban(){
-    	return $this->belongsTo('App\PhongBan','ma_phongban','id_pb');
+    	return $this->belongsTo('App\PhongBan','ma_phongban','id');
     }
     public function chucvu(){
-    	return $this->belongsTo('App\ChucVu','ma_chucvu','id_cv');
+    	return $this->belongsTo('App\ChucVu','ma_chucvu','id');
     }
 }

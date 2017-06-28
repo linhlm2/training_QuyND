@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNhanVienTable extends Migration
+class CreateStaffTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateNhanVienTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhanvien', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('hoten','30');
-            $table->date('ngaysinh');
-            $table->string('quequan','80')->nullable();
-            $table->string('dantoc','20')->nullable();
-            $table->integer('gioitinh')->nullable();
-            $table->string('sdt','20')->nullable();
-            $table->integer('ma_phongban')->unsigned();
-            $table->integer('ma_chucvu')->unsigned();
+            $table->string('name','30');
+            $table->date('birthday');
+            $table->string('address','80')->nullable();
+            $table->string('country','20')->nullable();
+            $table->integer('sex')->nullable();
+            $table->string('phone','20')->nullable();
+            $table->integer('id_department')->unsigned();
+            $table->integer('id_position')->unsigned();
             $table->string('password','80');
             $table->string('email','40')->unique();
             $table->integer('is_admin');
@@ -39,6 +39,6 @@ class CreateNhanVienTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhanvien');
+        Schema::dropIfExists('staff');
     }
 }

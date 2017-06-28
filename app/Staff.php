@@ -10,14 +10,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NhanVien extends Model
+class Staff extends Model
 {
     //
-    protected $table ='nhanvien';
-    public function phongban(){
-    	return $this->belongsTo('App\PhongBan','ma_phongban','id');
+    protected $table ='staff';
+    public function department(){
+    	return $this->belongsTo('App\Department','id_department','id');
     }
-    public function chucvu(){
-    	return $this->belongsTo('App\ChucVu','ma_chucvu','id');
+    public function position(){
+    	return $this->belongsTo('App\Position','id_position','id');
     }
 }

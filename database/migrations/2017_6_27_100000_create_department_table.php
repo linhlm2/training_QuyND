@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhongBanTable extends Migration
+class CreateDepartmentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePhongBanTable extends Migration
      */
     public function up()
     {
-        Schema::create('phongban', function (Blueprint $table) {
+        Schema::create('department', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten_phongban','50');
-            $table->string('diachipb','80');
-            $table->string('sdtpb','20');
+            $table->string('name','50');
+            $table->string('address','80');
+            $table->string('phone','20');
             $table->timestamps();
 
         });
@@ -30,6 +30,6 @@ class CreatePhongBanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phongban');
+        Schema::dropIfExists('department');
     }
 }

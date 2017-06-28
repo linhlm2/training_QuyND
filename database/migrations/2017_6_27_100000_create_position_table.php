@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChucVuTable extends Migration
+class CreatePositionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateChucVuTable extends Migration
      */
     public function up()
     {
-        Schema::create('chucvu', function (Blueprint $table) {
+        Schema::create('position', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten_chucvu','30');
+            $table->string('name','30');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateChucVuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chucvu');
+        Schema::dropIfExists('position');
     }
 }

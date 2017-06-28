@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,12 +11,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('nhanvien')->insert([
-            'hoten' => str_random(10),
-            'ngaysinh'=> '1994-02-04',
-            'ma_phongban'=> '1',
-            'ma_chucvu'=> '1',
-            'password' => bcrypt('secret'),
+        DB::table('position')->insert([
+            'name' => 'trưởng phòng',           
+        ]); 
+        DB::table('department')->insert([
+            'name' => str_random(10),
+            'address' => str_random(30),
+            'phone' => str_random(10)
+        ]);
+        DB::table('staff')->insert([
+            'name' => str_random(10),
+            'birthday'=> '1994-02-04',
+            'id_department'=> '1',
+            'id_position'=> '1', 
+            'password' => Hash::make('secret'),
             'email' => str_random(10).'@gmail.com',
             'is_admin'=> '1',
             'active'=> '1',

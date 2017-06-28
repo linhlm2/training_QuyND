@@ -10,12 +10,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PhongBan extends Model
+class Position extends Model
 {
     //
-    protected $table ='phongban';
+    protected $table ='position';
     
-    public function nhanvien(){
-    	return $this->hasMany('App\NhanVien','ma_phongban','id');
+    public function staff(){
+    	return $this->hasMany('App\Staff','id_position','id');
     }
 }

@@ -18,31 +18,37 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>ID Nhân viên</th>
-                                <th>Họ Tên</th>
-                                <th>ngày sinh</th>
-                                <th>quê quán</th>
-                                <th>dân tộc</th>
-                                <th>giới tính</th>
+                                <th>ID staff</th>
+                                <th>Name</th>
+                                <th>birthday</th>
+                                <th>address</th>
+                                <th>country</th>
+                                <th>sex</th>
+                                <th>phone</th>
+                                <th>department</th>
+                                <th>position</th>
                                 <th>email</th>
-                                <th>phòng ban</th>
+                                <th>admin</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($danhsach as $tl)
+                        @foreach($list as $tl)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$tl->id}}</td>
-                                <td>{{$tl->hoten}}</td>
-                                <td>{{$tl->ngaysinh}}</td>
-                                <td>{{$tl->quequan}}</td>
-                                <td>{{$tl->dantoc}}</td>
-                                <td>{{$tl->gioitinh}}</td>
+                                <td>{{$tl->name}}</td>
+                                <td>{{$tl->birthday}}</td>
+                                <td>{{$tl->address}}</td>
+                                <td>{{$tl->country}}</td>
+                                <td>{{$tl->sex}}</td>
+                                <td>{{$tl->phone}}</td>
+                                <td>{{$tl->department->name}}</td>
+                                <td>{{$tl->position->name}}</td>
                                 <td>{{$tl->email}}</td>
-                                <td>{{$tl->phongban->ten_phongban}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/nhanvien/xoa/{{$tl->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/nhanvien/sua/{{$tl->id}}">Edit</a></td>
+                                <td>{{$tl->admin}}</td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/staff/delete/{{$tl->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/staff/edit/{{$tl->id}}">Edit</a></td>
                             </tr>
                          @endforeach   
                         </tbody>

@@ -17,19 +17,18 @@ Route::get('/', function () {
 
 
 Route::group(['prefix'=>'admin'],function(){
-//        Route::get('danhsachnhanvien','DanhSachController@getDanhSach');
         
-	Route::group(['prefix'=>'nhanvien'],function(){
+	Route::group(['prefix'=>'staff'],function(){
 
-		Route::get('xem','DanhSachController@getDanhSach');
+		Route::get('list','StaffController@getList');
 
-		Route::get('sua/{id}','DanhSachController@getSua');
-		Route::post('sua/{id}','DanhSachController@postSua');
+		Route::get('edit/{id}','StaffController@getEdit');
+		Route::post('edit/{id}','StaffController@postEdit');
 
-		Route::get('them','DanhSachController@getThem');
-		Route::post('them','DanhSachController@postThem');
+		Route::get('add','StaffController@getAdd');
+		Route::post('add','StaffController@postAdd');
 
-		Route::get('xoa/{id}','DanhSachController@postXoa');
+		Route::get('delete/{id}','StaffController@postDelete');
 	});
 
 	    

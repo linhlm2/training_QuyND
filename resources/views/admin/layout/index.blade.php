@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>Admin - QuyND</title>
     <base href="{{asset('')}}">
-
+<?php use League\Flysystem\Config\constant ?>
     <!-- Bootstrap Core CSS -->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 

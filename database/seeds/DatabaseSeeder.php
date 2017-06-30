@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             'birthday'=> '1994-02-04',
             'id_department'=> '1',
             'id_position'=> '1', 
-            'password' => Hash::make('secret'),
-            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('12345678'),
+            'email' => 'quynd@gmail.com',
             'is_admin'=> '1',
             'active'=> '1',
             'codepass'=> str_random(10)

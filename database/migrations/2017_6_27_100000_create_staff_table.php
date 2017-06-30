@@ -23,7 +23,7 @@ class CreateStaffTable extends Migration
             $table->string('phone','20')->nullable();
             $table->integer('id_department')->unsigned();
             $table->integer('id_position')->unsigned();
-            $table->string('password','80');
+            $table->string('password');
             $table->string('email','40')->unique();
             $table->integer('is_admin');
             $table->integer('active');

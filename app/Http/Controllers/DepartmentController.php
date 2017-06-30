@@ -1,0 +1,104 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Department;
+class DepartmentController extends Controller
+{
+    /*
+     * Get List function. 
+     * Get department list. 
+     */
+    public function getList()
+    {
+        $list = Department::all();		 
+    	return view('admin.department.list',['list'=>$list]);
+    }
+    
+    /**
+     * 
+     * @param type $id
+     * @return type
+     */
+    public function getEdit($id)
+    {
+        $department = Department::find($id); 
+        return view('admin.department.edit',['department'=>$department]);
+    }    
+    
+    /**
+     * 
+     * @param Request $request
+     * @param type $id
+     * @return type
+     */
+    public function postEdit(Request $request,$id)
+    {       
+        $department = Department::find($id);
+        $this->validate($request,
+            [
+                'name'=>'required|max:30',
+                'address'=>'required|max:80',
+                'phone'=>'required|max:20'
+            ],
+            [
+            'name.required'=>'not fill name',
+            'name.max'=>'too long'
+            ]);
+        $department->name = $request->name;
+        $department->address = $request->address;
+        $department->phone = $request->phone;
+        $department->save();       
+       return redirect('admin/department/edit/'.$id)->with('note','edit success');
+   }
+   
+   /*
+    * 
+    */
+    public function getAdd()
+    {
+    	return view('admin.department.add');
+    }    
+    /**
+     * 
+     * @param Request $request
+     * @return type
+     */
+    public function postAdd(Request $request)
+    {
+    	$this->validate($request,
+    		[
+    		'name'=>'required|min:3|max:30',
+                'address'=>'required|max:80',
+                'phone'=>'required|max:20'
+    		],
+    		[
+    		'name.required'=>'not fill name',
+    		'name.max'=>'too long'
+    		]);
+    	$department= new Department;
+        $department->name = $request->name;
+        $department->address = $request->address;
+        $department->phone = $request->phone;
+        $department->save();
+        return redirect('admin/department/add')->with('note','add success');
+    }
+    
+    /**
+     * 
+     * @param type $id
+     * @return type
+     */
+    public function postXoa($id)
+    {
+        $department = Department::find($id);
+        $department->delete();
+        return redirect('admin/department/list')->with('note','delete success');
+    }
+}
+

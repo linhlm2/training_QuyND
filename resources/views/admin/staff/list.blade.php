@@ -46,7 +46,7 @@
                                 <td>{{$tl->department->name}}</td>
                                 <td>{{$tl->position->name}}</td>
                                 <td>{{$tl->email}}</td>
-                                <td>{{$tl->admin}}</td>
+                                <td>{{$tl->is_admin}}</td>
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/staff/delete/{{$tl->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/staff/edit/{{$tl->id}}">Edit</a></td>
                             </tr>

@@ -15,22 +15,18 @@ use App\Department;
 use App\Position;
 use Illuminate\Support\Facades\Hash;
 use config\constant;
+use Illuminate\Support\Facades\Crypt;
 class StaffController extends Controller
 {
- 
-    
-  
-
     public function getList(){
- 		 $list = Staff::all();
- 		 
+ 		 $list = Staff::all();	 
     	return view('admin.staff.list',['list'=>$list]);
     }
 
     public function getEdit($id){
         $staff = Staff::find($id);
         $department = Department::all();
-        $position = Position::all();
+        $position = Position::all(); 
         return view('admin.staff.edit',['staff'=>$staff,'department'=>$department,'position'=>$position]);
     }
     
@@ -49,8 +45,7 @@ class StaffController extends Controller
                 'password',
                 'email'=>'required|max:40',
                 'admin'=>'required|max:1',
-                'active'=>'required|max:1',
-                
+                'active'=>'required|max:1',   
             ],
             [
             'name.required'=>'not fill name',
@@ -66,25 +61,20 @@ class StaffController extends Controller
         $staff->phone = $request->phone;
         $staff->id_department = $request->department;
         $staff->id_position = $request->position;
-        if(strlen($request->password)==0){   
-        }elseif(!nullOrEmptyString($request->password) && strlen($request->password)>5){$staff->password = Hash::make($request->password);
+        if(strlen($request->password)==0)   
+        {}else if(strlen($request->password)>5){$staff->password = bcrypt($request->password);
         }else return redirect('admin/staff/edit/'.$id)->with('note','password wrong');
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;
         $staff->active = $request->active;
         $staff->update();       
-
-
         return redirect('admin/staff/edit/'.$id)->with('note','edit success');
-
-
     }
 
     public function getAdd(){
         $department = Department::all();
         $position = Position::all();
     	return view('admin.staff.add',['department'=>$department,'position'=>$position]);
-
     }
     
     public function postAdd(Request $request){
@@ -106,7 +96,6 @@ class StaffController extends Controller
     		],
     		[
     		'name.required'=>'not fill name',
-                'name.unique'=>'name existed',
     		'name.min'=>'too short',
     		'name.max'=>'too long'
     		]);
@@ -118,8 +107,8 @@ class StaffController extends Controller
         $staff->sex = $request->sex;
         $staff->phone = $request->phone;
         $staff->id_department = $request->department;
-        $staff->id_position = $request->position;
-        $staff->password = Hash::make($request->password);
+        $staff->id_position = $request->position;        
+        $staff->password = bcrypt($request->password);
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;
         $staff->active = $request->active;    	
@@ -127,8 +116,8 @@ class StaffController extends Controller
         return redirect('admin/staff/add')->with('note','add success');
     }
     public function postXoa($id){
-        $theloai = Staff::find($id);
-        $theloai->delete();
+        $staff = Staff::find($id);
+        $staff->delete();
         return redirect('admin/staff/list')->with('note','delete success');
     }
 }

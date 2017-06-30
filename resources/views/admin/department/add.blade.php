@@ -5,8 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Loại Tin
-                            <small>Thêm</small>
+                        <h1 class="page-header">Add Department
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -23,24 +22,23 @@
                         {{session('thongbao')}}
                     </div>
                     @endif
-                        <form action="admin/loaitin/them" method="POST">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <form action="admin/department/add" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="form-group">
-                                <label>Thể Loại</label>
-                                <select class="form-control" name="TheLoai">
-                                @foreach($theloai as $tl)
-                                    <option value="{{$tl->id}}">{{$tl->Ten}}</option>
-                                @endforeach   
-                                </select>
+                                <label>Name Department</label>
+                                <input class="form-control" name="name" placeholder="fill name department"  />
                             </div>
                             <div class="form-group">
-                                <label>Tên loại tin</label>
-                                <input class="form-control" name="Ten" placeholder="Nhập tên thể loại" />
+                                <label>Adress Department</label>
+                                <input class="form-control" name="adress" placeholder="fill adress department"  />
                             </div>
-                            
-                            <button type="submit" class="btn btn-default">Thêm</button>
+                            <div class="form-group">
+                                <label>Phone Department</label>
+                                <input class="form-control" name="phone" placeholder="fill phone department"  />
+                            </div>
+                            <button type="submit" class="btn btn-default">department Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->

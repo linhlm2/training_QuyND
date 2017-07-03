@@ -10,10 +10,18 @@ use Illuminate\Support\Facades\Auth;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    
+    /*
+     * 
+     */
     function __construct() 
     {
     $this->login();
     }
+    
+    /*
+     * 
+     */
     function login()
     {
         if(auth::check())

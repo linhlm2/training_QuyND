@@ -45,7 +45,7 @@ class UserController extends Controller
      */
     public function postEdit(Request $request,$id)
     {
-        $staff = Staff::find($id);
+        $staff = Staff::find($id);  
         $this->validate($request,
             [
                 'name'=>'required|min:3|max:30',

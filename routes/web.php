@@ -46,7 +46,7 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminMiddleware'],function(){
 Route::group(['prefix'=>'user','middleware'=>'UserMiddleware'],function()
 {
     Route::get('edit','UserController@getEditUser');
-    Route::post('edit','UserController@postEditUser')->name('post.edit');
+    Route::post('edit','UserController@postEditUser')->name('postedit');
     Route::get('liststaff','UserController@getListStaff');
 });
 Route::get('admin/loginadmin','UserController@getAdminlogin');

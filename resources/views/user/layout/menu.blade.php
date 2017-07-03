@@ -16,25 +16,10 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Staff<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="user/view">List staff</a>
-                                </li>
-                                <li>
-                                    <a href="user/edit">Add staff</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="user/edit"><i class="fa fa-bar-chart-o fa-fw"></i> Edit profile<span ></span></a>   
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Department<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="user/liststaff/list">List departmetn</a>
-                                </li>  
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="user/liststaff"><i class="fa fa-bar-chart-o fa-fw"></i> list staff<span ></span></a>
                         </li>  
                         
                                             </ul>

@@ -3,15 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/layouts/app.blade.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Controllers/DepartmentController.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Controllers/HomeController.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/home.blade.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/admin/login.blade.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/auth/login.blade.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/User.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/user/layout/header.blade.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/admin/staff/edit.blade.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/user/view.blade</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Middleware/AdminMiddleware.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/user/edit.blade</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Controllers/UserController.php</file>
             <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/routes/web.php</file>
-            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Controllers/UserviewController.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/user/liststaff.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Controllers/StaffController.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Controllers/Controller.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/login.blade.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/admin/loginadmin.blade.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/Http/Kernel.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/app/User.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/user/layout/index.blade.php</file>
+            <file>file:/D:/Quynd/xampp/htdocs/training_QuyND/resources/views/user/layout/menu.blade.php</file>
         </group>
     </open-files>
 </project-private>

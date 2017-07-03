@@ -9,22 +9,31 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Position;
+
 class PositionController extends Controller
 {
  
-
+    /*
+     * get list function
+     */
     public function getList()
     {
         $list = Position::all();		 
     	return view('admin.position.list',['list'=>$list]);
     }
-
+    
+    /*
+     * get edit function
+     */
     public function getEdit($id)
     {
         $position = Position::find($id);
         return view('admin.position.edit',['position'=>$position]);
     }
     
+    /*
+     * post edit function
+     */
     public function postEdit(Request $request,$id)
     {
         $position = Position::find($id);
@@ -39,8 +48,11 @@ class PositionController extends Controller
         $position->name = $request->name;
         $position->update();       
        return redirect('admin/position/edit/'.$id)->with('note','edit success');
-   }
-
+    }
+   
+    /*
+     * get add function
+     */
     public function getAdd()
     {
     	return view('admin.position.add');
@@ -61,7 +73,11 @@ class PositionController extends Controller
         $position->save();
         return redirect('admin/position/add')->with('note','add success');
     }
-    public function postXoa($id)
+    
+    /*
+     * delete function
+     */
+    public function postDelete($id)
     {
         $position = Position::find($id);
         $position->delete();

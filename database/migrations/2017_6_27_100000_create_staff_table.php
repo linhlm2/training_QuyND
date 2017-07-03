@@ -13,7 +13,8 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) 
+        {
             $table->increments('id');
             $table->string('name','30');
             $table->date('birthday');
@@ -28,6 +29,7 @@ class CreateStaffTable extends Migration
             $table->integer('is_admin');
             $table->integer('active');
             $table->string('codepass','20')->nullable();   
+            $table->rememberToken();
             $table->timestamps();
         });
     }

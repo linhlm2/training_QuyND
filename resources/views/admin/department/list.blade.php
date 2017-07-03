@@ -8,9 +8,9 @@
                         <h1 class="page-header"> List Department </h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                    @if(session('thongbao'))
+                    @if(session('note'))
                     <div class="alert alert-success">
-                        {{session('thongbao')}}
+                        {{session('note')}}
                     </div>
                     @endif
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class Mymiddleware
+class Usermiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,13 @@ class Mymiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->has('id'))
-            return $next($request);
+        if(Auth::check())
+        {
+            $user = Auth::user();
+                return $next($request);
+        } 
         else
-            return redirect ()->route ('loi');
+            return redirect('login');
+        
     }
 }

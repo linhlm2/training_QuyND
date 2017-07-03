@@ -1,14 +1,16 @@
-@extends('admin.layout.index')
+@extends('user.layout.index')
     
 @section('content')
 <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"> List Position </h1>
+                        <h1 class="page-header">
+                            <small>Danh sách nhân viên</small>
+                        </h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                    @if(session('note'))
+                    @if(session('thongbao'))
                     <div class="alert alert-success">
                         {{session('note')}}
                     </div>
@@ -16,19 +18,27 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>ID position</th>
+                                <th>ID staff</th>
                                 <th>Name</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>birthday</th>
+                                <th>address</th>
+                                <th>country</th>
+                                <th>sex</th>
+                                <th>phone</th>
+                                <th>email</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($list as $tl)
+                        @foreach($view as $tl)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$tl->id}}</td>
                                 <td>{{$tl->name}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/position/delete/{{$tl->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/position/edit/{{$tl->id}}">Edit</a></td>
+                                <td>{{$tl->birthday}}</td>
+                                <td>{{$tl->address}}</td>
+                                <td>{{$tl->country}}</td>
+                                <td>{{$tl->sex}}</td>
+                                <td>{{$tl->phone}}</td>
+                                <td>{{$tl->email}}</td>
                             </tr>
                          @endforeach   
                         </tbody>

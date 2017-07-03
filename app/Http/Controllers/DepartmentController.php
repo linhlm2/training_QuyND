@@ -22,8 +22,8 @@ class DepartmentController extends Controller
     
     /**
      * 
-     * @param type $id
-     * @return type
+     * get edit function
+     *  
      */
     public function getEdit($id)
     {
@@ -33,9 +33,9 @@ class DepartmentController extends Controller
     
     /**
      * 
-     * @param Request $request
-     * @param type $id
-     * @return type
+     * post edit function
+     * 
+     * 
      */
     public function postEdit(Request $request,$id)
     {       
@@ -58,7 +58,7 @@ class DepartmentController extends Controller
    }
    
    /*
-    * 
+    * get add funtion
     */
     public function getAdd()
     {
@@ -69,11 +69,13 @@ class DepartmentController extends Controller
      * @param Request $request
      * @return type
      */
+    
     public function postAdd(Request $request)
     {
+        
     	$this->validate($request,
     		[
-    		'name'=>'required|min:3|max:30',
+    		'name'=>'required|max:30',
                 'address'=>'required|max:80',
                 'phone'=>'required|max:20'
     		],
@@ -91,10 +93,10 @@ class DepartmentController extends Controller
     
     /**
      * 
-     * @param type $id
-     * @return type
+     * delete function
+     * 
      */
-    public function postXoa($id)
+    public function postDelete($id)
     {
         $department = Department::find($id);
         $department->delete();

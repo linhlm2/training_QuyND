@@ -17,9 +17,9 @@
                         @endforeach
                     </div>
                     @endif
-                    @if(session('thongbao'))
+                    @if(session('note'))
                     <div class="alert alert-success">
-                        {{session('thongbao')}}
+                        {{session('note')}}
                     </div>
                     @endif
                         <form action="admin/position/add" method="POST">

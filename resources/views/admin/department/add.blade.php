@@ -17,9 +17,9 @@
                         @endforeach
                     </div>
                     @endif
-                    @if(session('thongbao'))
+                    @if(session('note'))
                     <div class="alert alert-success">
-                        {{session('thongbao')}}
+                        {{session('note')}}
                     </div>
                     @endif
                         <form action="admin/department/add" method="POST">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Adress Department</label>
-                                <input class="form-control" name="adress" placeholder="fill adress department"  />
+                                <input class="form-control" name="address" placeholder="fill address department"  />
                             </div>
                             <div class="form-group">
                                 <label>Phone Department</label>

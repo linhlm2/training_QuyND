@@ -16,21 +16,34 @@ use App\Position;
 use Illuminate\Support\Facades\Hash;
 use config\constant;
 use Illuminate\Support\Facades\Crypt;
+
 class StaffController extends Controller
 {
-    public function getList(){
- 		 $list = Staff::all();	 
+    /*
+     * get list function
+     */
+    public function getList()
+    {
+        $list = Staff::all();	 
     	return view('admin.staff.list',['list'=>$list]);
     }
-
-    public function getEdit($id){
+    
+    /*
+     * get edit function
+     */
+    public function getEdit($id)
+    {
         $staff = Staff::find($id);
         $department = Department::all();
         $position = Position::all(); 
         return view('admin.staff.edit',['staff'=>$staff,'department'=>$department,'position'=>$position]);
     }
     
-    public function postEdit(Request $request,$id){
+    /*
+     * post edit function
+     */
+    public function postEdit(Request $request,$id)
+    {
         $staff = Staff::find($id);
         $this->validate($request,
             [
@@ -71,13 +84,21 @@ class StaffController extends Controller
         return redirect('admin/staff/edit/'.$id)->with('note','edit success');
     }
 
-    public function getAdd(){
+    /*
+     * get add function
+     */
+    public function getAdd()
+    {
         $department = Department::all();
         $position = Position::all();
     	return view('admin.staff.add',['department'=>$department,'position'=>$position]);
     }
     
-    public function postAdd(Request $request){
+    /*
+     * post add function
+     */
+    public function postAdd(Request $request)
+    {
     	$this->validate($request,
     		[
     		'name'=>'required|min:3|max:30',
@@ -115,7 +136,12 @@ class StaffController extends Controller
         $staff->save();
         return redirect('admin/staff/add')->with('note','add success');
     }
-    public function postXoa($id){
+    
+    /*
+     * Delete function
+     */
+    public function postDelete($id)
+    {
         $staff = Staff::find($id);
         $staff->delete();
         return redirect('admin/staff/list')->with('note','delete success');

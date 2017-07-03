@@ -6,14 +6,27 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function getLogin(){
+    /*
+     * login function
+     */
+    public function getLogin()
+    {
         return view('login');
     }
-    public function getSignin(){
+    
+    /*
+     * signin function
+     */
+    public function getSignin()
+    {
         return view('signin');
     }
-
-    public function postSignin(Request $req){
+    
+    /*
+     * post signin function
+     */
+    public function postSignin(Request $req)
+    {
         $this->validate($req,
             [
                 'email'=>'required|email|unique:users,email',
@@ -39,7 +52,11 @@ class HomeController extends Controller
         return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
     }
 
-    public function postLogin(Request $req){
+    /*
+     * post login function
+     */
+    public function postLogin(Request $req)
+    {
         $this->validate($req,
             [
                 'email'=>'required|email',
@@ -58,22 +75,29 @@ class HomeController extends Controller
                 ['email','=',$req->email],
                 ['status','=','1']
             ])->first();
-
-        if($user){
-            if(Auth::attempt($credentials)){
+        if($user)
+        {
+            if(Auth::attempt($credentials))
+            {
 
             return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
-            }
-            else{
+            }else
+            {
                 return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập không thành công']);
             }
         }
-        else{
+        else
+        {
            return redirect()->back()->with(['flag'=>'danger','message'=>'Tài khoản chưa kích hoạt']); 
         }
         
     }
-    public function postLogout(){
+    
+    /*
+     * logout function
+     */
+    public function postLogout()
+    {
         Auth::logout();
         return redirect()->route('signin');
     }

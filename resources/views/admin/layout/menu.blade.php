@@ -34,7 +34,7 @@
                                     <a href="admin/department/list">List departmetn</a>
                                 </li>
                                 <li>
-                                    <a href="admin/derpartment/add">Add department</a>
+                                    <a href="{{ URL::route('department.add') }}">Add department</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

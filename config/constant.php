@@ -13,4 +13,5 @@ class constant{
     const USER = "2";
     const ACTIVE = "1";
     const UNACTIVE = "2";
+    const TRUONGPHONG = "1";
 }

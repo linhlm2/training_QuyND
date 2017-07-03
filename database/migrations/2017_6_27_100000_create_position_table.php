@@ -13,7 +13,8 @@ class CreatePositionTable extends Migration
      */
     public function up()
     {
-        Schema::create('position', function (Blueprint $table) {
+        Schema::create('position', function (Blueprint $table) 
+        {
             $table->increments('id');
             $table->string('name','30');
             $table->timestamps();

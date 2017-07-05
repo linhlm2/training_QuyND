@@ -43,8 +43,8 @@
                             <div class="form-group">
                                 <label>Sex</label>
                                 <select class="form-control" name="sex" placeholder="fill Sex" >
-                                <option value="{{constant::MALE}}" @if($staff->sex == constant::MALE) echo selected @endif>male</option>
-                                <option value="{{constant::FEMALE}}" @if($staff->sex == constant::FEMALE) echo selected @endif>female</option>
+                                <option value="{{constants::MALE}}" @if($staff->sex == constants::MALE) echo selected @endif>male</option>
+                                <option value="{{constants::FEMALE}}" @if($staff->sex == constants::FEMALE) echo selected @endif>female</option>
                                 </select>
                             </div>
                             <div class="form-group">

@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class constant{
+class constants{
 
     const MALE = "1";
     const FEMALE = "2";
@@ -13,5 +13,7 @@ class constant{
     const USER = "2";
     const ACTIVE = "1";
     const UNACTIVE = "2";
-    const TRUONGPHONG = "1";
+    const ISBOSS = "1";
+    const LENGTHPASSWORD = "8";
+    
 }

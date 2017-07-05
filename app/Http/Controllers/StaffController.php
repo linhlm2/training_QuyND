@@ -14,7 +14,7 @@ use App\Staff;
 use App\Department;
 use App\Position;
 use Illuminate\Support\Facades\Hash;
-use config\constant;
+use config\constants;
 use Illuminate\Support\Facades\Crypt;
 
 class StaffController extends Controller
@@ -74,8 +74,9 @@ class StaffController extends Controller
         $staff->phone = $request->phone;
         $staff->id_department = $request->department;
         $staff->id_position = $request->position;
-        if(strlen($request->password)==0)   
-        {}else if(strlen($request->password)>5){$staff->password = bcrypt($request->password);
+        if(strlen($request->password)==0){
+        }else if(strlen($request->password)>8){
+            $staff->password = bcrypt($request->password);
         }else return redirect('admin/staff/edit/'.$id)->with('note','password wrong');
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;

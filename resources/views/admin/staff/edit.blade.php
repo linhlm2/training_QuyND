@@ -43,8 +43,8 @@
                             <div class="form-group">
                                 <label>Sex</label>
                                 <select class="form-control" name="sex" placeholder="fill Sex" >
-                                <option value="{{constant::MALE}}" @if($staff->sex == constant::MALE) echo selected @endif>male</option>
-                                <option value="{{constant::FEMALE}}" @if($staff->sex == constant::FEMALE) echo selected @endif>female</option>
+                                <option value="{{constants::MALE}}" @if($staff->sex == constants::MALE) echo selected @endif>male</option>
+                                <option value="{{constants::FEMALE}}" @if($staff->sex == constants::FEMALE) echo selected @endif>female</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -78,15 +78,15 @@
                             <div class="form-group">
                                 <label>Admin</label>
                                 <select class="form-control" name="admin" placeholder="fill Admin" >
-                                <option value="{{constant::ADMIN}}" @if($staff->is_admin == constant::ADMIN) echo selected @endif>admin</option>
-                                <option value="{{constant::USER}}" @if($staff->is_admin == constant::USER) echo selected @endif>user</option>
+                                <option value="{{constants::ADMIN}}" @if($staff->is_admin == constants::ADMIN) echo selected @endif>admin</option>
+                                <option value="{{constants::USER}}" @if($staff->is_admin == constants::USER) echo selected @endif>user</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>active</label>
                                 <select class="form-control" name="active" placeholder="fill active"  >
-                                <option value="{{constant::ACTIVE}}" @if($staff->active == constant::ACTIVE) echo selected @endif>actived</option>
-                                <option value="{{constant::UNACTIVE}}" @if($staff->active == constant::UNACTIVE) echo selected @endif>unactive</option>
+                                <option value="{{constants::ACTIVE}}" @if($staff->active == constants::ACTIVE) echo selected @endif>actived</option>
+                                <option value="{{constants::UNACTIVE}}" @if($staff->active == constants::UNACTIVE) echo selected @endif>unactive</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-default">save</button>

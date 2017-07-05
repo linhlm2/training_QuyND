@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'trưởng phòng',           
         ]); 
         DB::table('department')->insert([
-            'name' => str_random(10),
+            'name' => 'd3',
             'address' => str_random(30),
             'phone' => str_random(10)
         ]);
         DB::table('staff')->insert([
-            'name' => str_random(10),
+            'name' => 'quynd',
             'birthday'=> '1994-02-04',
             'id_department'=> '1',
             'id_position'=> '1', 

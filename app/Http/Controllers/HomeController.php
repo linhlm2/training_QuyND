@@ -75,19 +75,13 @@ class HomeController extends Controller
                 ['email','=',$req->email],
                 ['status','=','1']
             ])->first();
-        if($user)
-        {
-            if(Auth::attempt($credentials))
-            {
-
+        if($user){
+            if(Auth::attempt($credentials)){
             return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
-            }else
-            {
+            }else{
                 return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập không thành công']);
             }
-        }
-        else
-        {
+        }else{
            return redirect()->back()->with(['flag'=>'danger','message'=>'Tài khoản chưa kích hoạt']); 
         }
         

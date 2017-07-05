@@ -15,7 +15,7 @@ use App\Department;
 use App\Position;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use config\constant;
+use config\constants ;
 use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
@@ -76,9 +76,12 @@ class UserController extends Controller
         $staff->id_department = $request->department;
         $staff->id_position = $request->position;
         
-        if(strlen($request->password)==0)   
-        {}else if(strlen($request->password)>5){$staff->password = Crypt::encrypt($request->password);
-        }else{ return redirect('admin/staff/edit/'.$id)->with('note','password wrong');};
+        if(strlen($request->password) == 0){  
+        }else if(strlen($request->password) >= \constants::LENGTHPASSWORD){
+            $staff->password = bcrypt($request->password);
+        }else{ 
+            return redirect('admin/staff/edit/'.$id)->with('note','password wrong'); 
+        };
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;
         $staff->active = $request->active;
@@ -188,7 +191,7 @@ class UserController extends Controller
         $staff->phone = $request->phone;
         $staff->email = $request->email;
         if(strlen($request->password)==0)   
-        {}else if(strlen($request->password)>5){$staff->password = Crypt::encrypt($request->password);
+        {}else if(strlen($request->password) >= \constants::LENGTHPASSWORD){$staff->password = bcrypt($request->password);
         }else{ return redirect('/user/edit/')->with('note','password wrong');};
         $staff->update();       
         return redirect('/user/edit/')->with('note','edit success');
@@ -200,12 +203,38 @@ class UserController extends Controller
     public function getListStaff()
     {
         $user = Auth::user();
-        if($user->id_position == 1)
+        if($user->id_position == \constants::ISBOSS)
         {
             $view = DB::table('staff')->where('id_department',1)->get();
             return view('user/liststaff',['view'=>$view]);
         }else 
             return redirect('user/edit/')->with('note','you are not boss');
     }
+    
+    /*
+     * get reset password function
+     */
+    public function getResetPassword() {
+        return view('resetpassword');
+    }
+    
+    /*
+     * post reset password function
+     */
+    public function postResetPassword(Request $request) {
+        $user = Auth::user();
+        if(Hash::check($request->passwordold,$user->password)){
+           if(($request->passwordnew == $request->passwordagain) ){
+               if(strlen($request->passwordnew) >= \constants::LENGTHPASSWORD){
+               $staff = Staff::find($user->id);
+               $staff->active = 1;
+               $staff->password = bcrypt($request->passwordnew);
+               $staff->save();
+               return redirect('login')->with('note','reset password success');
+               }else return redirect ('resetpassword')->with('note','your new password too short');
+            }else return redirect ('resetpassword')->with('note','your new password different');
+        }else return redirect ('resetpassword')->with('note','your password wrong');
+    }
 }
+
 

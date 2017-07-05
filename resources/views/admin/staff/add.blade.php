@@ -44,8 +44,8 @@
                             <div class="form-group">
                                 <label>Sex</label>
                                 <select class="form-control" name="sex" placeholder="fill Sex" >
-                                <option value="{{constant::MALE}}" >male</option>
-                                <option value="{{constant::FEMALE}}" >female</option>
+                                <option value="{{constants::MALE}}" >male</option>
+                                <option value="{{constants::FEMALE}}" >female</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -79,15 +79,15 @@
                             <div class="form-group">
                                 <label>Admin</label>
                                 <select class="form-control" name="admin" placeholder="fill Admin" >
-                                <option value="{{constant::ADMIN}}" >admin</option>
-                                <option value="{{constant::USER}}" >user</option>
+                                <option value="{{constants::ADMIN}}" >admin</option>
+                                <option value="{{constants::USER}}" >user</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>active</label>
                                 <select class="form-control" name="active" placeholder="fill active"  >
-                                <option value="{{constant::ACTIVE}}" >actived</option>
-                                <option value="{{constant::UNACTIVE}}" >unactive</option>
+                                <option value="{{constants::ACTIVE}}" >actived</option>
+                                <option value="{{constants::UNACTIVE}}" >unactive</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-default">staff Add</button>

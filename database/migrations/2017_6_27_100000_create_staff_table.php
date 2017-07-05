@@ -28,7 +28,7 @@ class CreateStaffTable extends Migration
             $table->string('email','40')->unique();
             $table->integer('is_admin');
             $table->integer('active');
-            $table->string('codepass','20')->nullable();   
+            $table->string('codepass')->nullable();   
             $table->rememberToken();
             $table->timestamps();
         });

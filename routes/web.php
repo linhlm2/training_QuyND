@@ -50,8 +50,11 @@ Route::group(['prefix'=>'user','middleware'=>'UserMiddleware'],function()
     Route::get('liststaff','UserController@getListStaff');
 });
 Route::get('admin/loginadmin','UserController@getAdminlogin');
-Route::post('admin/loginadmin','UserController@PostAdminlogin');
-Route::get('login','UserController@GetLogin');
-Route::post('login','UserController@PostLogin');
+Route::post('admin/loginadmin','UserController@postAdminlogin');
+Route::get('login','UserController@getLogin');
+Route::post('login','UserController@postLogin');
 Route::get('logout','UserController@getLogOut');
-
+Route::post('resetpassword','UserController@postResetPassword');
+Route::get('resetpassword','UserController@getResetPassword');
+Route::post('sendmail','SendMailController@postSendMail');
+Route::get('sendmail','SendMailController@getSendMail');

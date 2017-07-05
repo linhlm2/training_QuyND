@@ -14,19 +14,18 @@ class Controller extends BaseController
     /*
      * 
      */
-    function __construct() 
-    {
-    $this->login();
-    }
+//    function __construct() 
+//    {
+//        $this->login();
+//    }
     
     /*
      * 
      */
-    function login()
-    {
-        if(auth::check())
-        {
-            view()->share('user_login',Auth::user());
-        }
-    }
+//    function login()
+//    {
+//        if(auth::check()){
+//            view()->share('user_login',Auth::user());
+//        }
+//    }
 }

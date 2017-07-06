@@ -3,10 +3,12 @@
 @section('content')
 <div id="page-wrapper">
             <div class="container-fluid">
+                <form action="admin/staff/adminreset" method="POST">
+                <input type="hidden" name="_token" value="{{csrf_token()}}" />
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <small>List staffs</small>
+                            <small>reset muti password user</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -36,6 +38,7 @@
                         <tbody>
                         @foreach($list as $tl)
                             <tr class="odd gradeX" align="center">
+                                <td> <input type="checkbox" name="user[]" value="{{$tl->id}}"> </td>
                                 <td>{{$tl->id}}</td>
                                 <td>{{$tl->name}}</td>
                                 <td>{{$tl->birthday}}</td>
@@ -50,10 +53,12 @@
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/staff/delete/{{$tl->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/staff/edit/{{$tl->id}}">Edit</a></td>
                             </tr>
-                         @endforeach   
+                         @endforeach                       
                         </tbody>
                     </table>
                 </div>
+                <button type="submit" class="btn btn-default">reset password</button>
+                 </form>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->

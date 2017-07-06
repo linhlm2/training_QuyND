@@ -59,7 +59,7 @@ class StaffController extends Controller
                 'department',
                 'position',
                 'password',
-                'email'=>'required|max:40',
+                'email'=>'required|unique:staff,email|max:40',
                 'admin'=>'required|max:1',
                 'active'=>'required|max:1',   
             ],
@@ -115,7 +115,7 @@ class StaffController extends Controller
                 'department',
                 'position',
                 'password'=>'required|min6|max:20',
-                'email'=>'required|max:40',
+                'email'=>'required|unique:staff,email|max:40',
                 'admin'=>'required|max:1',
                 'active'=>'required|max:1',
                 'password'=>'required|min:6|max:20'
@@ -184,6 +184,37 @@ class StaffController extends Controller
         })->export('xlsx');
         $department = Department::all();    
         return view('admin.excel.export',['department'=>$department])->with('note','export success');  
+    }
+    
+    /*
+     * 
+     */
+    public function getAdminReset()
+    {
+        $list = Staff::all();	 
+    	return view('admin.staff.adminreset',['list'=>$list]);
+    }
+    
+    /*
+     * 
+     */
+    public function postAdminReset(Request $request)
+    {
+        $user = $request->user;
+        $list = Staff::all();
+        foreach ($user as $id)
+        {
+         
+            $password = str_random(8);
+            $staff = Staff::find($id);
+            $staff->codepass = bcrypt($password);
+            $staff->save();
+            Mail::send('resetmail',['password' => $password, 'staff' => $staff], function ($message) use ($staff) {               
+                $message->to($staff->email, 'user');
+                $message->from('nguyendinhquy94@gmail.com', 'admin')->subject('reset password');      
+            });
+        };
+    	return view('admin.staff.adminreset',['list'=>$list])->with('note', 'reset pass word success');
     }
 }
 

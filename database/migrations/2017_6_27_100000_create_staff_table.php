@@ -13,25 +13,27 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) 
-        {
-            $table->increments('id');
-            $table->string('name','30');
-            $table->date('birthday');
-            $table->string('address','80')->nullable();
-            $table->string('country','20')->nullable();
-            $table->integer('sex')->nullable();
-            $table->string('phone','20')->nullable();
-            $table->integer('id_department')->unsigned();
-            $table->integer('id_position')->unsigned();
-            $table->string('password');
-            $table->string('email','40')->unique();
-            $table->integer('is_admin');
-            $table->integer('active');
-            $table->string('codepass')->nullable();   
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('department')){
+            Schema::create('staff', function (Blueprint $table) 
+            {
+                $table->increments('id');
+                $table->string('name','30');
+                $table->date('birthday');
+                $table->string('address','80')->nullable();
+                $table->string('country','20')->nullable();
+                $table->integer('sex')->nullable();
+                $table->string('phone','20')->nullable();
+                $table->integer('id_department')->unsigned();
+                $table->integer('id_position')->unsigned();
+                $table->string('password');
+                $table->string('email','40')->unique();
+                $table->integer('is_admin');
+                $table->integer('active');
+                $table->string('codepass')->nullable();   
+                $table->rememberToken();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

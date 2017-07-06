@@ -37,7 +37,7 @@ class SendMailController extends Controller
             $staff->codepass = bcrypt($password);
             $staff->save();
             Mail::send('resetmail',['password' => $password, 'staff' => $staff], function ($message) use ($request) {               
-                $message->to($request->email, 'user');
+                $message->to($request->email, 'user')->subject('reset password');
                 $message->from('nguyendinhquy94@gmail.com', 'admin');      
             });
             return redirect('login')->with('note', 'send password to email');

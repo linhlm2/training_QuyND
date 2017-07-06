@@ -8,6 +8,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Department;
+use App\Staff;
+use Illuminate\Support\Facades\DB;
 class DepartmentController extends Controller
 {
     /*
@@ -44,7 +46,7 @@ class DepartmentController extends Controller
             [
                 'name'=>'required|max:30',
                 'address'=>'required|max:80',
-                'phone'=>'required|max:20'
+                'phone'=>'required|numeric|digits_between:9,11|max:20'
             ],
             [
             'name.required'=>'not fill name',
@@ -77,7 +79,7 @@ class DepartmentController extends Controller
     		[
     		'name'=>'required|max:30',
                 'address'=>'required|max:80',
-                'phone'=>'required|max:20'
+                'phone'=>'required|numeric|digits_between:9,11|max:20'
     		],
     		[
     		'name.required'=>'not fill name',
@@ -98,9 +100,12 @@ class DepartmentController extends Controller
      */
     public function postDelete($id)
     {
-        $department = Department::find($id);
-        $department->delete();
-        return redirect('admin/department/list')->with('note', 'delete success');
+        if (!Staff::where('id_department',$id)->exists()) {
+            $department = Department::find($id);
+            $department->delete();
+            return redirect('admin/department/list')->with('note', 'delete success');
+        } else 
+            return redirect('admin/department/list')->with('note', 'cant delete this department');
     }
 }
 

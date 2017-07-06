@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Position;
+use App\Staff;
+use Illuminate\Support\Facades\DB;
 
 class PositionController extends Controller
 {
@@ -39,7 +41,7 @@ class PositionController extends Controller
         $position = Position::find($id);
         $this->validate($request,
             [
-                'name'=>'required|max:30',    
+                'name'=>'required|unique:position,name|max:30',    
             ],
             [
             'name.required'=>'not fill name',
@@ -62,7 +64,7 @@ class PositionController extends Controller
     {
     	$this->validate($request,
     		[
-    		'name'=>'required|min:3|max:30',
+    		'name'=>'required|unique:position,name|max:30',
     		],
     		[
     		'name.required'=>'not fill name',
@@ -78,10 +80,13 @@ class PositionController extends Controller
      * delete function
      */
     public function postDelete($id)
-    {
+    {   
+        if(!Staff::where('id_position',$id)->exists()) {
         $position = Position::find($id);
         $position->delete();
         return redirect('admin/position/list')->with('note', 'delete success');
+        } else 
+            return redirect('admin/position/list')->with('note', 'can not delete this position');
     }
 }
 

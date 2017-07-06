@@ -23,6 +23,8 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminMiddleware'],function(){
 	Route::get('add','StaffController@getAdd');
 	Route::post('add','StaffController@postAdd');
 	Route::get('delete/{id}','StaffController@postDelete');
+        Route::get('adminreset','StaffController@getAdminReset');
+	Route::post('adminreset','StaffController@postAdminReset');
     });
     Route::group(['prefix'=>'position'],function()
     {
@@ -46,6 +48,10 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminMiddleware'],function(){
     {
 	Route::get('export','StaffController@getExport');
 	Route::post('export','StaffController@postExport');
+    });
+    Route::group(['prefix'=>'reset'],function()
+    {
+	
     });
 });
 Route::group(['prefix'=>'user','middleware'=>'UserMiddleware'],function()

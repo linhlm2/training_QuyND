@@ -19,7 +19,7 @@ class PositionController extends Controller
     public function getList()
     {
         $list = Position::all();		 
-    	return view('admin.position.list',['list'=>$list]);
+    	return view('admin.position.list', ['list'=>$list]);
     }
     
     /*
@@ -28,7 +28,7 @@ class PositionController extends Controller
     public function getEdit($id)
     {
         $position = Position::find($id);
-        return view('admin.position.edit',['position'=>$position]);
+        return view('admin.position.edit', ['position'=>$position]);
     }
     
     /*
@@ -47,7 +47,7 @@ class PositionController extends Controller
             ]);
         $position->name = $request->name;
         $position->update();       
-       return redirect('admin/position/edit/'.$id)->with('note','edit success');
+        return redirect('admin/position/edit/'.$id)->with('note', 'edit success');
     }
    
     /*
@@ -71,7 +71,7 @@ class PositionController extends Controller
     	$position= new Position;
         $position->name = $request->name; 	
         $position->save();
-        return redirect('admin/position/add')->with('note','add success');
+        return redirect('admin/position/add')->with('note', 'add success');
     }
     
     /*
@@ -81,7 +81,7 @@ class PositionController extends Controller
     {
         $position = Position::find($id);
         $position->delete();
-        return redirect('admin/position/list')->with('note','delete success');
+        return redirect('admin/position/list')->with('note', 'delete success');
     }
 }
 

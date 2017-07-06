@@ -30,7 +30,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Admin Login</h3>
+                        <h3 class="panel-title">User Login</h3>
                     </div>
                     @if(count($errors) > 0)
                             <div class="alert alert-danger">
@@ -43,27 +43,16 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="admin/loginadmin" method="POST">
-                            <fieldset>
-                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                </div>
-                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                            </fieldset>
-                        </form>
-                         <a href="{{'login'}}">User login</a>
-                         <p </p>
-                         <a href="{{'sendmail'}}">Lost Password ?</a> 
+                        <p> Email đăng nhập: {{$staff->email}} </p>
+                        <p> Mã reset password: {{$password}} </p>
+                        <a href="{{'resetlogin'}}">đến trang  reset password</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    
     <!-- jQuery -->
     <script src="admin_asset/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -79,3 +68,5 @@
 </body>
 
 </html>
+
+

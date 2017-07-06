@@ -21,7 +21,9 @@
                         <li>
                             <a href="user/liststaff"><i class="fa fa-bar-chart-o fa-fw"></i> list staff<span ></span></a>
                         </li>  
-                        
+                        <li>
+                            <a href="admin/staff/list"><i class="fa fa-bar-chart-o fa-fw"></i> Admin Area<span ></span></a>
+                        </li>
                                             </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

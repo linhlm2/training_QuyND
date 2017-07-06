@@ -88,7 +88,7 @@ class DepartmentController extends Controller
         $department->address = $request->address;
         $department->phone = $request->phone;
         $department->save();
-        return redirect('admin/department/add')->with('note','add success');
+        return redirect('admin/department/add')->with('note', 'add success');
     }
     
     /**
@@ -100,7 +100,7 @@ class DepartmentController extends Controller
     {
         $department = Department::find($id);
         $department->delete();
-        return redirect('admin/department/list')->with('note','delete success');
+        return redirect('admin/department/list')->with('note', 'delete success');
     }
 }
 

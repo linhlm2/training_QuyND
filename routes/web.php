@@ -41,7 +41,12 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminMiddleware'],function(){
 	Route::get('add', 'DepartmentController@getAdd')->name('department.add');
 	Route::post('add','DepartmentController@postAdd');
 	Route::get('delete/{id}','DepartmentController@postDelete');
-    });  
+    }); 
+    Route::group(['prefix'=>'excel'],function()
+    {
+	Route::get('export','StaffController@getExport');
+	Route::post('export','StaffController@postExport');
+    });
 });
 Route::group(['prefix'=>'user','middleware'=>'UserMiddleware'],function()
 {
@@ -58,3 +63,5 @@ Route::post('resetpassword','UserController@postResetPassword');
 Route::get('resetpassword','UserController@getResetPassword');
 Route::post('sendmail','SendMailController@postSendMail');
 Route::get('sendmail','SendMailController@getSendMail');
+Route::post('resetlogin','SendMailController@postResetLogin');
+Route::get('resetlogin','SendMailController@getResetLogin');

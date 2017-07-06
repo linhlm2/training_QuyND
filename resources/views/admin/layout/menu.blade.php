@@ -13,7 +13,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="admin/staff/list"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Staff<span class="fa arrow"></span></a>
@@ -50,6 +50,12 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="admin/excel/export"><i class="fa fa-bar-chart-o fa-fw"></i>Export list staff<span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="user/edit"><i class="fa fa-bar-chart-o fa-fw"></i> User Area<span class="fa arrow"></span></a>
                         </li>
                         
                                             </ul>

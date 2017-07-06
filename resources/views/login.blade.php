@@ -56,12 +56,15 @@
                             </fieldset>
                         </form>
                         <a href="{{'admin/loginadmin'}}">Admin login</a>
+                        <p </p>
+                        <a href="{{'sendmail'}}">Lost Password ?</a> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    
     <!-- jQuery -->
     <script src="admin_asset/bower_components/jquery/dist/jquery.min.js"></script>
 

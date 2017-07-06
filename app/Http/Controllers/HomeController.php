@@ -35,12 +35,12 @@ class HomeController extends Controller
                 're_password'=>'required|same:password'
             ],
             [
-                'email.required'=>'Vui lòng nhập email',
-                'email.email'=>'Không đúng định dạng email',
-                'email.unique'=>'Email đã có người sử dụng',
-                'password.required'=>'Vui lòng nhập mật khẩu',
-                're_password.same'=>'Mật khẩu không giống nhau',
-                'password.min'=>'Mật khẩu ít nhất 6 kí tự'
+                'email.required'=>'input email',
+                'email.email'=>'do not type email',
+                'email.unique'=>'Email existed',
+                'password.required'=>'input password',
+                're_password.same'=>'dont same password',
+                'password.min'=>'too short'
             ]);
         $user = new Staff();
         $user->full_name = $req->fullname;
@@ -49,7 +49,7 @@ class HomeController extends Controller
         $user->phone = $req->phone;
         $user->address = $req->address;
         $user->save();
-        return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
+        return redirect()->back()->with('success', 'creat account success');
     }
 
     /*
@@ -60,29 +60,29 @@ class HomeController extends Controller
         $this->validate($req,
             [
                 'email'=>'required|email',
-                'password'=>'required|min:6|max:20'
+                'password'=>'required|min:8|max:20'
             ],
             [
-                'email.required'=>'Vui lòng nhập email',
-                'email.email'=>'Email không đúng định dạng',
-                'password.required'=>'Vui lòng nhập mật khẩu',
-                'password.min'=>'Mật khẩu ít nhất 6 kí tự',
-                'password.max'=>'Mật khẩu không quá 20 kí tự'
+                'email.required'=>'input email',
+                'email.email'=>'type is not Email type',
+                'password.required'=>'input password',
+                'password.min'=>'too short',
+                'password.max'=>'password too long'
             ]
         );
-        $credentials = array('email'=>$req->email,'password'=>$req->password);
+        $credentials = array('email'=>$req->email, 'password'=>$req->password);
         $user = User::where([
                 ['email','=',$req->email],
                 ['status','=','1']
             ])->first();
-        if($user){
-            if(Auth::attempt($credentials)){
-            return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
-            }else{
-                return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập không thành công']);
+        if ($user) {
+            if (Auth::attempt($credentials)) {
+                return redirect()->back()->with(['flag' => 'success', 'message' => 'login success']);
+            } else {
+                   return redirect()->back()->with(['flag' => 'danger', 'message' => 'can not login']);
             }
-        }else{
-           return redirect()->back()->with(['flag'=>'danger','message'=>'Tài khoản chưa kích hoạt']); 
+        } else {
+            return redirect()->back()->with(['flag' => 'danger', 'message' => 'account not active']); 
         }
         
     }

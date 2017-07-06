@@ -16,6 +16,9 @@ use App\Position;
 use Illuminate\Support\Facades\Hash;
 use config\constants;
 use Illuminate\Support\Facades\Crypt;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 class StaffController extends Controller
 {
@@ -74,10 +77,11 @@ class StaffController extends Controller
         $staff->phone = $request->phone;
         $staff->id_department = $request->department;
         $staff->id_position = $request->position;
-        if(strlen($request->password)==0){
-        }else if(strlen($request->password)>8){
-            $staff->password = bcrypt($request->password);
-        }else return redirect('admin/staff/edit/'.$id)->with('note','password wrong');
+        if (strlen($request->password) == 0) {
+        } elseif (strlen($request->password) > 8) {
+               $staff->password = bcrypt($request->password);
+        } else 
+               return redirect('admin/staff/edit/'.$id)->with('note','password wrong');
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;
         $staff->active = $request->active;
@@ -135,6 +139,11 @@ class StaffController extends Controller
         $staff->is_admin = $request->admin;
         $staff->active = $request->active;    	
         $staff->save();
+        $password = $request->password;
+        Mail::send('admin.staff.sendpassword',['password' => $password, 'staff' => $staff], function ($message) use ($request) {               
+                $message->to($request->email, 'user');
+                $message->from('nguyendinhquy94@gmail.com', 'admin');      
+            });
         return redirect('admin/staff/add')->with('note','add success');
     }
     
@@ -146,6 +155,35 @@ class StaffController extends Controller
         $staff = Staff::find($id);
         $staff->delete();
         return redirect('admin/staff/list')->with('note','delete success');
+    }
+    
+    /*
+     * get export staff function
+     */
+    public function getExport()
+    {
+        $department = Department::all();
+    	return view('admin.excel.export',['department'=>$department]);
+    }
+    
+    /*
+     * post export staff function
+     */
+    public function postExport(Request $request)
+    {
+        $list = DB::table('staff')->where('id_department',$request->department)->get() ;
+        $data = [['name','birthday']];
+        foreach ($list as $l) {
+            $arrayData = [$l->name, $l->birthday];
+            $data[] = array_merge($arrayData);
+        }
+        Excel::create('list staff', function($excel) use ($data) {
+            $excel->sheet('list staff', function($sheet) use ($data) {
+                $sheet->fromArray($data);
+            });
+        })->export('xlsx');
+        $department = Department::all();    
+        return view('admin.excel.export',['department'=>$department])->with('note','export success');  
     }
 }
 

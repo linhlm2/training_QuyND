@@ -30,7 +30,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Admin Login</h3>
+                        <h3 class="panel-title">Reset Password</h3>
                     </div>
                     @if(count($errors) > 0)
                             <div class="alert alert-danger">
@@ -43,21 +43,24 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="admin/loginadmin" method="POST">
+                        <form role="form" action="resetlogin" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Email" name="email" type="email" >
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="code" name="passcode" >
                                 </div>
-                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="New Password" name="passwordnew" type="password" >
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="New Password" name="passwordagain" type="password" >
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Change Password</button>
                             </fieldset>
-                        </form>
-                         <a href="{{'login'}}">User login</a>
-                         <p </p>
-                         <a href="{{'sendmail'}}">Lost Password ?</a> 
+                        </form> 
                     </div>
                 </div>
             </div>

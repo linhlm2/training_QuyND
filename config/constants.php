@@ -15,5 +15,6 @@ class constants{
     const UNACTIVE = 2;
     const ISBOSS = 1;
     const LENGTHPASSWORD = 8;
+    const ID_ADMIN = 1;
     
 }

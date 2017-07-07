@@ -204,7 +204,6 @@ class StaffController extends Controller
         $list = Staff::all();
         foreach ($user as $id)
         {
-         
             $password = str_random(8);
             $staff = Staff::find($id);
             $staff->codepass = bcrypt($password);

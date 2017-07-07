@@ -7,13 +7,13 @@
  */
 class constants{
 
-    const MALE = "1";
-    const FEMALE = "2";
-    const ADMIN = "1";
-    const USER = "2";
-    const ACTIVE = "1";
-    const UNACTIVE = "2";
-    const ISBOSS = "1";
-    const LENGTHPASSWORD = "8";
+    const MALE = 1;
+    const FEMALE = 2;
+    const ADMIN = 1;
+    const USER = 2;
+    const ACTIVE = 1;
+    const UNACTIVE = 2;
+    const ISBOSS = 1;
+    const LENGTHPASSWORD = 8;
     
 }

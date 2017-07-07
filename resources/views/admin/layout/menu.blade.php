@@ -52,6 +52,9 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="admin/staff/adminreset"><i class="fa fa-bar-chart-o fa-fw"></i>Reset muti password account<span class="fa arrow"></span></a>
+                        </li>
+                        <li>
                             <a href="admin/excel/export"><i class="fa fa-bar-chart-o fa-fw"></i>Export list staff<span class="fa arrow"></span></a>
                         </li>
                         <li>

@@ -13,7 +13,7 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('department')){
+        if (!Schema::hasTable('staff')){
             Schema::create('staff', function (Blueprint $table) 
             {
                 $table->increments('id');

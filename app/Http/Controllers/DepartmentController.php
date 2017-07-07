@@ -46,7 +46,7 @@ class DepartmentController extends Controller
             [
                 'name'=>'required|max:30',
                 'address'=>'required|max:80',
-                'phone'=>'required|numeric|digits_between:9,11|max:20'
+                'phone'=>'required|numeric|digits_between:8,12'
             ],
             [
             'name.required'=>'not fill name',
@@ -79,7 +79,7 @@ class DepartmentController extends Controller
     		[
     		'name'=>'required|max:30',
                 'address'=>'required|max:80',
-                'phone'=>'required|numeric|digits_between:9,11|max:20'
+                'phone'=>'required|numeric|digits_between:8,12'
     		],
     		[
     		'name.required'=>'not fill name',

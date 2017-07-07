@@ -13,7 +13,7 @@ class CreatePositionTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('department')){
+        if (!Schema::hasTable('position')){
             Schema::create('position', function (Blueprint $table) 
             {
                 $table->increments('id');

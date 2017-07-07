@@ -152,7 +152,7 @@ class StaffController extends Controller
      */
     public function postDelete($id)
     {
-        if($id == constants::ID_ADMIN){
+        if($id == \constants::ID_ADMIN){
            return redirect('admin/staff/list')->with('note','can not delete'); 
         }
         $staff = Staff::find($id);

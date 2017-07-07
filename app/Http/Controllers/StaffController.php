@@ -202,6 +202,8 @@ class StaffController extends Controller
     {
         $user = $request->user;
         $list = Staff::all();
+        if($request->user == NULL) 
+            return view('admin.staff.adminreset',['list'=>$list])->with('note', 'no acount reset');
         foreach ($user as $id)
         {
             $password = str_random(8);

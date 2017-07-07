@@ -94,7 +94,11 @@ class UserController extends Controller
      */
     public function getAdminlogin()
     {
-        return view('admin.loginadmin');
+        $user = Auth::user();
+        if ($user->is_admin == 1) {
+            return  Redirect('admin/staff/list');
+        } else
+            return view('admin.loginadmin');
     }
     
     /*
@@ -130,7 +134,10 @@ class UserController extends Controller
      */
     public function getLogin()
     {
-        return view('login');
+        if (Auth::check()) {
+            return  Redirect('user/edit');
+        } else 
+            return view('login');
     }
     
     /*

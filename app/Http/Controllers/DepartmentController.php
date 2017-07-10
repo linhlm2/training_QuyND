@@ -18,8 +18,14 @@ class DepartmentController extends Controller
      */
     public function getList()
     {
-        $list = Department::all();		 
-    	return view('admin.department.list',['list'=>$list]);
+        $list = Department::all();
+        foreach ($list as $de)
+        {
+            if (DB::table('staff')->where('id_department',$de->id)->first()) {
+                $listcantdelete[] = $de->id;
+            };
+        };		 
+    	return view('admin.department.list',['list'=>$list,'deid'=>$listcantdelete]);
     }
     
     /**

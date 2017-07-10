@@ -20,8 +20,14 @@ class PositionController extends Controller
      */
     public function getList()
     {
-        $list = Position::all();		 
-    	return view('admin.position.list', ['list'=>$list]);
+        $list = Position::all();
+        foreach ($list as $po)
+        {
+            if (DB::table('staff')->where('id_position',$po->id)->first()) {
+                $listcantdelete[] = $po->id;
+            };
+        };
+    	return view('admin.position.list', ['list'=>$list,'poid'=>$listcantdelete]);
     }
     
     /*

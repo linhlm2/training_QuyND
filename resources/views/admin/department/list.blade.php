@@ -27,7 +27,11 @@
                             <tr class="odd gradeX" align="center">
                                 <td>{{$tl->id}}</td>
                                 <td>{{$tl->name}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/department/delete/{{$tl->id}}"> Delete</a></td>
+                                @if(!in_array($tl->id,$deid))
+                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/department/delete/{{$tl->id}}"> Delete</a></td>
+                                @else
+                                    <td class="center">can not delete</td>
+                                @endif
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/department/edit/{{$tl->id}}">Edit</a></td>
                             </tr>
                          @endforeach   

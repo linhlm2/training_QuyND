@@ -31,6 +31,7 @@
                             <div class="form-group">
                                 <label>Birthday</label>
                                 <input type="date" class="form-control" name="birthday" placeholder="fill Birthday" value="{{$staff->birthday}}" />
+<!--                                <input type="text" id="datepicker" class="form-control" name="birthday" value="{{$staff->birthday}}"   />  -->
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
@@ -41,11 +42,13 @@
                                 <input class="form-control" name="country" placeholder="fill Country" value="{{$staff->country}}" />
                             </div>
                             <div class="form-group">
-                                <label>Sex</label>
-                                <select class="form-control" name="sex" placeholder="fill Sex" >
+                                <label>Sex :</label>
+<!--                                <select class="form-control" name="sex" placeholder="fill Sex" >
                                 <option value="{{constants::MALE}}" @if($staff->sex == constants::MALE) echo selected @endif>male</option>
                                 <option value="{{constants::FEMALE}}" @if($staff->sex == constants::FEMALE) echo selected @endif>female</option>
-                                </select>
+                                </select>-->
+                                <input type="radio" name="sex" value="{{constants::MALE}}" @if($staff->sex == constants::MALE) echo checked @endif> Male
+                                <input type="radio" name="sex" value="{{constants::FEMALE}}"> Female<br>
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>
@@ -98,4 +101,15 @@
             </div>
             <!-- /.container-fluid -->
         </div>
+<!--  <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+  <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+  <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>-->
 @endsection

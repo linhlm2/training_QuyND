@@ -5,6 +5,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
+                         <h3 class="page-header">
+                            <a href="admin/position/add">Add Position</a>
+                         </h3>
+                    </div>
+                    <div class="col-lg-12">
                         <h1 class="page-header"> List Position </h1>
                     </div>
                     <!-- /.col-lg-12 -->

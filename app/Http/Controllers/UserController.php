@@ -15,7 +15,7 @@ use App\Department;
 use App\Position;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use config\constants ;
+use config\constants;
 use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller

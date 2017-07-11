@@ -83,13 +83,6 @@
                                 <option value="{{constants::USER}}" >user</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>active</label>
-                                <select class="form-control" name="active" placeholder="fill active"  >
-                                <option value="{{constants::ACTIVE}}" >actived</option>
-                                <option value="{{constants::UNACTIVE}}" >unactive</option>
-                                </select>
-                            </div>
                             <button type="submit" class="btn btn-default">staff Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         </form>

@@ -43,7 +43,7 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="resetpassword" method="POST">
+                        <form role="form" action="user/resetpassword" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
@@ -57,7 +57,8 @@
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Change Password</button>
                             </fieldset>
-                        </form> 
+                        </form>
+                        <a href="{{'logout'}}">User logout</a>
                     </div>
                 </div>
             </div>

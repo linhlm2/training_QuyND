@@ -44,11 +44,6 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminMiddleware'],function(){
 	Route::post('add','DepartmentController@postAdd');
 	Route::get('delete/{id}','DepartmentController@postDelete');
     }); 
-    Route::group(['prefix'=>'excel'],function()
-    {
-	Route::get('export','StaffController@getExport');
-	Route::post('export','StaffController@postExport');
-    });
     Route::group(['prefix'=>'reset'],function()
     {
 	
@@ -56,6 +51,13 @@ Route::group(['prefix'=>'admin','middleware'=>'AdminMiddleware'],function(){
 });
 Route::group(['prefix'=>'user','middleware'=>'UserMiddleware'],function()
 {
+    Route::group(['prefix'=>'excel'],function()
+    {
+	Route::get('export','StaffController@getExport');
+	Route::post('export','StaffController@postExport');
+    });
+    Route::post('resetpassword','UserController@postResetPassword');
+    Route::get('resetpassword','UserController@getResetPassword');
     Route::get('edit','UserController@getEditUser');
     Route::post('edit','UserController@postEditUser')->name('postedit');
     Route::get('liststaff','UserController@getListStaff');
@@ -65,8 +67,6 @@ Route::post('admin/loginadmin','UserController@postAdminlogin');
 Route::get('login','UserController@getLogin');
 Route::post('login','UserController@postLogin');
 Route::get('logout','UserController@getLogOut');
-Route::post('resetpassword','UserController@postResetPassword');
-Route::get('resetpassword','UserController@getResetPassword');
 Route::post('sendmail','SendMailController@postSendMail');
 Route::get('sendmail','SendMailController@getSendMail');
 Route::post('resetlogin','SendMailController@postResetLogin');

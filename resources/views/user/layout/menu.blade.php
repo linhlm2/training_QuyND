@@ -20,7 +20,10 @@
                         </li>
                         <li>
                             <a href="user/liststaff"><i class="fa fa-bar-chart-o fa-fw"></i> list staff<span ></span></a>
-                        </li>  
+                        </li> 
+                        <li>
+                            <a href="user/excel/export"><i class="fa fa-bar-chart-o fa-fw"></i>Export list staff<span class="fa arrow"></span></a>
+                        </li>
                         <li>
                             <a href="admin/staff/list"><i class="fa fa-bar-chart-o fa-fw"></i> Admin Area<span ></span></a>
                         </li>

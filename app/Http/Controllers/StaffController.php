@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\DB;
 use App\Staff;
 use App\Department;
 use App\Position;
-use Illuminate\Support\Facades\Hash;
 use config\constants;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
@@ -59,7 +60,7 @@ class StaffController extends Controller
                 'department',
                 'position',
                 'password',
-                'email'=>'required|max:40',
+                'email'=>'required|unique:staff,email,'.$id.',id|max:40',
                 'admin'=>'required|max:1',
                 'active'=>'required|max:1',   
             ],
@@ -104,6 +105,7 @@ class StaffController extends Controller
      */
     public function postAdd(Request $request)
     {
+        
     	$this->validate($request,
     		[
     		'name'=>'required|min:3|max:30',
@@ -117,7 +119,6 @@ class StaffController extends Controller
                 'password'=>'required|min6|max:20',
                 'email'=>'required|unique:staff,email|max:40',
                 'admin'=>'required|max:1',
-                'active'=>'required|max:1',
                 'password'=>'required|min:6|max:20'
     		],
     		[
@@ -137,7 +138,7 @@ class StaffController extends Controller
         $staff->password = bcrypt($request->password);
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;
-        $staff->active = $request->active;    	
+        $staff->active = 2;    	
         $staff->save();
         $password = $request->password;
         Mail::send('admin.staff.sendpassword',['password' => $password, 'staff' => $staff], function ($message) use ($request) {               
@@ -165,8 +166,9 @@ class StaffController extends Controller
      */
     public function getExport()
     {
-        $department = Department::all();
-    	return view('admin.excel.export',['department'=>$department]);
+        $user = Auth::user();
+        $list = DB::table('department')->where('id',$user->id_department)->first();
+    	return view('admin.excel.export',['department'=>$list]);
     }
     
     /*
@@ -174,7 +176,12 @@ class StaffController extends Controller
      */
     public function postExport(Request $request)
     {
-        $list = DB::table('staff')->where('id_department',$request->department)->get() ;
+        $user = Auth::user();
+        $department = DB::table('department')->where('id',$user->id_department)->first();
+        if ($user->id_position != \constants::ISBOSS) {
+            return redirect()->back()->with('fail','you cant access');
+        };
+        $list = DB::table('staff')->where('id_department',$user->id_department)->get() ;
         $data = [['name','birthday']];
         foreach ($list as $l) {
             $arrayData = [$l->name, $l->birthday];
@@ -184,9 +191,8 @@ class StaffController extends Controller
             $excel->sheet('list staff', function($sheet) use ($data) {
                 $sheet->fromArray($data);
             });
-        })->export('xlsx');
-        $department = Department::all();    
-        return view('admin.excel.export',['department'=>$department])->with('note','export success');  
+        })->export('xlsx'); 
+        return redirect()->back()->with('success','export access');  
     }
     
     /*

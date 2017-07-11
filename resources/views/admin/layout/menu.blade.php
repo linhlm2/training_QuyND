@@ -16,46 +16,16 @@
                             <a href="admin/staff/list"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Staff<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admin/staff/list">List staff</a>
-                                </li>
-                                <li>
-                                    <a href="admin/staff/add">Add staff</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="admin/staff/list"><i class="fa fa-bar-chart-o fa-fw"></i> Staff<span class="fa arrow"></span></a>  
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Department<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admin/department/list">List departmetn</a>
-                                </li>
-                                <li>
-                                    <a href="{{ URL::route('department.add') }}">Add department</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="admin/department/list"><i class="fa fa-bar-chart-o fa-fw"></i> Department<span class="fa arrow"></span></a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Position<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admin/position/list">List position</a>
-                                </li>
-                                <li>
-                                    <a href="admin/position/add">Add position</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="admin/position/list"><i class="fa fa-bar-chart-o fa-fw"></i> Position<span class="fa arrow"></span></a>
                         </li>
                         <li>
                             <a href="admin/staff/adminreset"><i class="fa fa-bar-chart-o fa-fw"></i>Reset muti password account<span class="fa arrow"></span></a>
-                        </li>
-                        <li>
-                            <a href="admin/excel/export"><i class="fa fa-bar-chart-o fa-fw"></i>Export list staff<span class="fa arrow"></span></a>
                         </li>
                         <li>
                             <a href="user/edit"><i class="fa fa-bar-chart-o fa-fw"></i> User Area<span class="fa arrow"></span></a>

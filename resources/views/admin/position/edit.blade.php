@@ -24,6 +24,11 @@
                                 {{session('note')}}
                             </div>
                             @endif
+                            @if(session('fail'))
+                            <div class="alert alert-danger">
+                                {{session('fail')}}
+                            </div>
+                            @endif
                             <div class="form-group">
                                 <label>Name</label>
                                 <input class="form-control" name="name" placeholder="fill name position" value="{{$position->name}}" />

@@ -22,6 +22,11 @@
                         {{session('note')}}
                     </div>
                     @endif
+                    @if(session('fail'))
+                    <div class="alert alert-danger">
+                        {{session('fail')}}
+                    </div>
+                    @endif
                         <form action="admin/position/add" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="form-group">

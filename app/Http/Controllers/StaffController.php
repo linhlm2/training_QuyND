@@ -78,6 +78,11 @@ class StaffController extends Controller
         $staff->phone = $request->phone;
         $staff->id_department = $request->department;
         $staff->id_position = $request->position;
+        if ($request->position == \constants::ISBOSS) {
+            if (DB::table('staff')->where([['id_department',$request->department],['id_position',$request->position],['id','!=',$id]])->first()) {
+                return redirect('admin/staff/edit/'.$id)->with('fail','this department had boss');
+            };
+        };
         if (strlen($request->password) == 0) {
         } elseif (strlen($request->password) > 8) {
                $staff->password = bcrypt($request->password);
@@ -87,7 +92,7 @@ class StaffController extends Controller
         $staff->is_admin = $request->admin;
         $staff->active = $request->active;
         $staff->update();       
-        return redirect('admin/staff/edit/'.$id)->with('note','edit success');
+        return redirect('admin/staff/list')->with('note','edit success');
     }
 
     /*
@@ -134,7 +139,12 @@ class StaffController extends Controller
         $staff->sex = $request->sex;
         $staff->phone = $request->phone;
         $staff->id_department = $request->department;
-        $staff->id_position = $request->position;        
+        $staff->id_position = $request->position;
+        if ($request->position == \constants::ISBOSS) {
+            if (DB::table('staff')->where([['id_department',$request->department],['id_position',$request->position]])->first()) {
+                return redirect('admin/staff/add')->with('fail','this department had boss');
+            };
+        };
         $staff->password = bcrypt($request->password);
         $staff->email = $request->email;
         $staff->is_admin = $request->admin;
@@ -145,7 +155,7 @@ class StaffController extends Controller
                 $message->to($request->email, 'user');
                 $message->from('nguyendinhquy94@gmail.com', 'admin');      
             });
-        return redirect('admin/staff/add')->with('note','add success');
+        return redirect('admin/staff/list')->with('note','add success');
     }
     
     /*
@@ -154,7 +164,7 @@ class StaffController extends Controller
     public function postDelete($id)
     {
         if($id == \constants::ID_ADMIN){
-           return redirect('admin/staff/list')->with('note','can not delete'); 
+           return redirect('admin/staff/list')->with('fail','can not delete'); 
         }
         $staff = Staff::find($id);
         $staff->delete();
@@ -212,7 +222,7 @@ class StaffController extends Controller
         $user = $request->user;
         $list = Staff::all();
         if($request->user == NULL) 
-            return view('admin.staff.adminreset',['list'=>$list])->with('note', 'no acount reset');
+            return view('admin.staff.adminreset',['list'=>$list])->with('fail', 'no acount reset');
         foreach ($user as $id)
         {
             $password = str_random(8);

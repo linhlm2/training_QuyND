@@ -19,6 +19,11 @@
                                 @endforeach
                             </div>
                             @endif
+                            @if(session('fail'))
+                            <div class="alert alert-danger">
+                                {{session('fail')}}
+                            </div>
+                            @endif
                             @if(session('note'))
                             <div class="alert alert-success">
                                 {{session('note')}}
@@ -41,11 +46,9 @@
                                 <input class="form-control" name="country" placeholder="fill Country" value="{{$staff->country}}" />
                             </div>
                             <div class="form-group">
-                                <label>Sex</label>
-                                <select class="form-control" name="sex" placeholder="fill Sex" >
-                                <option value="{{constants::MALE}}" @if($staff->sex == constants::MALE) echo selected @endif>male</option>
-                                <option value="{{constants::FEMALE}}" @if($staff->sex == constants::FEMALE) echo selected @endif>female</option>
-                                </select>
+                                <label>Sex :</label>
+                                <input type="radio" name="sex" value="{{constants::MALE}}" @if($staff->sex == constants::MALE) echo checked @endif> Male
+                                <input type="radio" name="sex" value="{{constants::FEMALE}}"> Female<br>
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>

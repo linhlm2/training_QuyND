@@ -19,6 +19,11 @@
                                 @endforeach
                             </div>
                             @endif
+                            @if(session('fail'))
+                            <div class="alert alert-danger">
+                                {{session('fail')}}
+                            </div>
+                            @endif
                             @if(session('note'))
                             <div class="alert alert-success">
                                 {{session('note')}}
@@ -58,15 +63,15 @@
                                 <label>Department</label>
                                 <select class="form-control" name="department"  value="{{$staff->department->name}}" >
                                 @foreach($department as $de)
-                                <option value={{$de->id}}>{{$de->name}}</option>
+                                <option value="{{$de->id}}" @if($staff->department->id == $de->id)echo selected @endif>{{$de->name}}</option>
                                 @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Position</label>
-                                <select class="form-control" name="position"  value="{{$staff->position->name}}" >
+                                <select class="form-control" name="position" >
                                 @foreach($position as $po)
-                                <option value={{$po->id}}>{{$po->name}}</option>
+                                    <option value="{{$po->id}}" @if($staff->position->id == $po->id)echo selected @endif>{{$po->name}}</option>
                                 @endforeach
                                 </select>
                             </div>                    
@@ -94,7 +99,7 @@
                             </div>
                             <button type="submit" class="btn btn-default">save</button>
                             <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->

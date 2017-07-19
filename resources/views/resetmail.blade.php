@@ -39,13 +39,18 @@
                                 @endforeach
                             </div>
                             @endif
+                            @if(session('fail'))
+                            <div class="alert alert-danger">
+                                {{session('fail')}}
+                            </div>
+                            @endif
                             @if(session('note'))
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
                         <p> Email đăng nhập: {{$staff->email}} </p>
                         <p> Mã reset password: {{$password}} </p>
-                        <a href="{{'resetlogin'}}">đến trang  reset password</a>
+                        <a href="{{'resetlogin'}}">go to reset password page</a>
                     </div>
                 </div>
             </div>

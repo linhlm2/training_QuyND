@@ -18,6 +18,11 @@
                         {{session('note')}}
                     </div>
                     @endif
+                    @if(session('fail'))
+                    <div class="alert alert-danger">
+                        {{session('fail')}}
+                    </div>
+                    @endif
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">

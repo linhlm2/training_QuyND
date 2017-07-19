@@ -92,7 +92,7 @@ class PositionController extends Controller
         $position->delete();
         return redirect('admin/position/list')->with('note', 'delete success');
         } else 
-            return redirect('admin/position/list')->with('note', 'can not delete this position');
+            return redirect('admin/position/list')->with('fail', 'can not delete this position');
     }
 }
 

@@ -111,7 +111,7 @@ class DepartmentController extends Controller
             $department->delete();
             return redirect('admin/department/list')->with('note', 'delete success');
         } else 
-            return redirect('admin/department/list')->with('note', 'cant delete this department');
+            return redirect('admin/department/list')->with('fail', 'cant delete this department');
     }
 }
 

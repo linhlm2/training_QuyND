@@ -17,6 +17,11 @@
                         @endforeach
                     </div>
                     @endif
+                    @if(session('fail'))
+                    <div class="alert alert-danger">
+                        {{session('fail')}}
+                    </div>
+                    @endif
                     @if(session('note'))
                     <div class="alert alert-success">
                         {{session('note')}}

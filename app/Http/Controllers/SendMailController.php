@@ -42,7 +42,7 @@ class SendMailController extends Controller
             });
             return redirect('login')->with('note', 'send password to email');
         } else 
-            return redirect('sendmail')->with('note', 'email not exists');
+            return redirect('sendmail')->with('fail', 'email not exists');
     }
     
     /*
@@ -67,12 +67,12 @@ class SendMailController extends Controller
                          $staff->save();
                          return redirect('login')->with('note','reset password success');
                     } else 
-                        return redirect ('resetlogin')->with('note','your new password too short');
+                        return redirect ('resetlogin')->with('fail','your new password too short');
                 } else 
-                    return redirect ('resetlogin')->with('note','your new password different');
+                    return redirect ('resetlogin')->with('fail','your new password different');
             } else
-                return redirect('resetlogin')->with('note', 'code wrong');;
+                return redirect('resetlogin')->with('fail', 'code wrong');;
         } else 
-            return redirect('resetlogin')->with('note', 'email not exists');
+            return redirect('resetlogin')->with('fail', 'email not exists');
     }
 }

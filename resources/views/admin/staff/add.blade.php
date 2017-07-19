@@ -23,6 +23,11 @@
                         {{session('note')}}
                     </div>
                     @endif
+                    @if(session('fail'))
+                    <div class="alert alert-danger">
+                        {{session('fail')}}
+                    </div>
+                    @endif
                         <form action="admin/staff/add" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="form-group">
@@ -56,7 +61,7 @@
                                 <label>Department</label>
                                 <select class="form-control" name="department"   >
                                 @foreach($department as $de)
-                                <option value={{$de->id}}>{{$de->name}}</option>
+                                <option value="{{$de->id}}">{{$de->name}}</option>
                                 @endforeach
                                 </select>
                             </div>
@@ -64,7 +69,7 @@
                                 <label>Position</label>
                                 <select class="form-control" name="position"   >
                                 @foreach($position as $po)
-                                <option value={{$po->id}}>{{$po->name}}</option>
+                                <option value="{{$po->id}}">{{$po->name}}</option>
                                 @endforeach
                                 </select>
                             </div>

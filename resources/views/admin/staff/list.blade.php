@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                          <h3 class="page-header">
-                            <a href="admin/staff/add">Add Staff</a>
+                            <a href="{{route('admin.staff.add.get')}}">Add Staff</a>
                          </h3>
                     </div>
                     <div class="col-lg-12">
@@ -57,8 +57,8 @@
                                 <td>{{$tl->position->name}}</td>
                                 <td>{{$tl->email}}</td>
                                 <td>{{$tl->is_admin}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/staff/delete/{{$tl->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/staff/edit/{{$tl->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('admin.staff.delete.get', $tl->id)}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.staff.edit.get', $tl->id)}}">Edit</a></td>
                             </tr>
                          @endforeach   
                         </tbody>

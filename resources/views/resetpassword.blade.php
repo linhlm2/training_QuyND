@@ -48,7 +48,7 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="user/resetpassword" method="POST">
+                        <form role="form" action="{{ URL::route('user.resetpassword.post') }}" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
@@ -63,7 +63,7 @@
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Change Password</button>
                             </fieldset>
                         </form>
-                        <a href="{{'logout'}}">User logout</a>
+                        <a href="{{ URL::route('logout.get') }}">User logout</a>
                     </div>
                 </div>
             </div>

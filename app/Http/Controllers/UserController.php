@@ -159,7 +159,7 @@ class UserController extends Controller
             $view = DB::table('staff')->where('id_department',1)->get();
             return view('user/liststaff',['view'=>$view]);
         }else 
-            return redirect('user/edit/')->with('note','you are not boss');
+            return redirect('user/edit/')->with('fail','you are not boss');
     }
     
     /*
@@ -182,9 +182,9 @@ class UserController extends Controller
                $staff->password = bcrypt($request->passwordnew);
                $staff->save();
                return redirect('login')->with('note','reset password success');
-               }else return redirect ('resetpassword')->with('note','your new password too short');
-            }else return redirect ('resetpassword')->with('note','your new password different');
-        }else return redirect ('resetpassword')->with('note','your password wrong');
+               }else return redirect ('resetpassword')->with('fail','your new password too short');
+            }else return redirect ('resetpassword')->with('fail','your new password different');
+        }else return redirect ('resetpassword')->with('fail','your password wrong');
     }
 }
 

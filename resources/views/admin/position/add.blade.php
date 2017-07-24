@@ -27,7 +27,7 @@
                         {{session('fail')}}
                     </div>
                     @endif
-                        <form action="admin/position/add" method="POST">
+                        <form action="{{route('admin.position.add.post')}}" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <div class="form-group">
                                 <label>Name Position</label>

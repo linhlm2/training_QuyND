@@ -50,7 +50,7 @@
                     <div class="panel-body">
                         <p> Email đăng nhập: {{$staff->email}} </p>
                         <p> Mã reset password: {{$password}} </p>
-                        <a href="{{'resetlogin'}}">go to reset password page</a>
+                        <a href="{{ URL::route('resetpass.get') }}">go to reset password page</a>
                     </div>
                 </div>
             </div>

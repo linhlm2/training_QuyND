@@ -48,7 +48,7 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="login" method="POST">
+                        <form role="form" action="{{route('user.login.post')}}" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
@@ -60,9 +60,9 @@
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
-                        <a href="{{'admin/loginadmin'}}">Admin login</a>
+                        <a href="{{ URL::route('admin.login.get') }}">Admin login</a>
                         <p </p>
-                        <a href="{{'sendmail'}}">Find Password</a> 
+                        <a href="{{ URL::route('findaccount.sendmail.get') }}">Find Password</a> 
                     </div>
                 </div>
             </div>

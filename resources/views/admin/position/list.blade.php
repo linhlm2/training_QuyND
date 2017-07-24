@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                          <h3 class="page-header">
-                            <a href="admin/position/add">Add Position</a>
+                            <a href="{{route('admin.position.add.get')}}">Add Position</a>
                          </h3>
                     </div>
                     <div class="col-lg-12">
@@ -38,11 +38,11 @@
                                 <td>{{$tl->id}}</td>
                                 <td>{{$tl->name}}</td>
                                 @if(!in_array($tl->id,$poid))
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/position/delete/{{$tl->id}}"> Delete</a></td>
+                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('admin.position.delete.get',$tl->id)}}"> Delete</a></td>
                                 @else 
                                     <td class="center">can not delete</td>
                                 @endif
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/position/edit/{{$tl->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.position.edit.get',$tl->id)}}">Edit</a></td>
                             </tr>
                          @endforeach   
                         </tbody>

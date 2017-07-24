@@ -3,7 +3,7 @@
 @section('content')
 <div id="page-wrapper">
             <div class="container-fluid">
-                <form action="admin/staff/adminreset" method="POST">
+                <form action="{{route('admin.staff.resetaccount.post')}}" method="POST">
                 <input type="hidden" name="_token" value="{{csrf_token()}}" />
                 <div class="row">
                     <div class="col-lg-12">

@@ -19,7 +19,7 @@
                     </div>
                     @endif
                      <div class="col-lg-7" style="padding-bottom:120px">
-                        <form role="form" action="user/excel/export" method="POST">
+                        <form role="form" action="{{route('user.exportfile.post')}}" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">

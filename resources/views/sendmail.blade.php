@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
+    <meta name="description" content="QuyND">
     <meta name="author" content="">
 
     <title>Admin - QuyND</title>
@@ -48,7 +48,7 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="sendmail" method="POST">
+                        <form role="form" action="{{ URL::route('findaccount.sendmail.post') }}" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
@@ -57,7 +57,7 @@
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Send</button>
                             </fieldset>
                         </form>
-                        <a href="{{'admin/loginadmin'}}">Admin login</a>
+                        <a href="{{ URL::route('admin.login.get') }}">Admin login</a>
                     </div>
                 </div>
             </div>

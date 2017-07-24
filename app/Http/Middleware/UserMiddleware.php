@@ -20,10 +20,10 @@ class Usermiddleware
             $user = Auth::user();
             if($user->active == 1){
                 return $next($request);
-            }else return redirect('resetpassword');
+            }else return redirect()->route('user.resetpassword.get');
         } 
         else
-            return redirect('login');
+            return redirect()->route('user.login.get');
         
     }
 }

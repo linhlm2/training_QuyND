@@ -13,22 +13,22 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="admin/staff/list"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{route('admin.staff.list.get')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="admin/staff/list"><i class="fa fa-bar-chart-o fa-fw"></i> Staff<span class="fa arrow"></span></a>  
+                            <a href="{{route('admin.staff.list.get')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Staff<span class="fa arrow"></span></a>  
                         </li>
                         <li>
-                            <a href="admin/department/list"><i class="fa fa-bar-chart-o fa-fw"></i> Department<span class="fa arrow"></span></a>
+                            <a href="{{route('admin.department.list.get')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Department<span class="fa arrow"></span></a>
                         </li>
                         <li>
-                            <a href="admin/position/list"><i class="fa fa-bar-chart-o fa-fw"></i> Position<span class="fa arrow"></span></a>
+                            <a href="{{route('admin.position.list.get')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Position<span class="fa arrow"></span></a>
                         </li>
                         <li>
-                            <a href="admin/staff/adminreset"><i class="fa fa-bar-chart-o fa-fw"></i>Reset muti password account<span class="fa arrow"></span></a>
+                            <a href="{{route('admin.staff.resetaccount.get')}}"><i class="fa fa-bar-chart-o fa-fw"></i>Reset muti password account<span class="fa arrow"></span></a>
                         </li>
                         <li>
-                            <a href="user/edit"><i class="fa fa-bar-chart-o fa-fw"></i> User Area<span class="fa arrow"></span></a>
+                            <a href="{{route('user.edit.get')}}"><i class="fa fa-bar-chart-o fa-fw"></i> User Area<span class="fa arrow"></span></a>
                         </li>
                         
                                             </ul>

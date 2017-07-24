@@ -48,7 +48,7 @@
                                 {{session('note')}}
                             @endif
                     <div class="panel-body">
-                        <form role="form" action="resetlogin" method="POST">
+                        <form role="form" action="{{ URL::route('resetpass.post') }}" method="POST">
                             <fieldset>
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
